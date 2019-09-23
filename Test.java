@@ -6,5 +6,5 @@ public class Test
     }
 }
 
-git config --global user.email "babithota5@msitprogram.net"
-git config --global user.name "phanit1"
+// git config --global user.email "babithota5@msitprogram.net"
+// git config --global user.name "phanit1"
