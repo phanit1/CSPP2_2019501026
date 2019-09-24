@@ -9,8 +9,8 @@
  * Output : 10
  * 
  * @author Siva Sankar
- **/
-import java.math.BigInteger;
+ */
+
 public class BinaryToDecimal {
 
     /**
@@ -19,24 +19,18 @@ public class BinaryToDecimal {
      * @param s, the binary string that contains only sequence of 1's and 0's.
      * @return the decimal number n of the binary string.
      */
-    public static BigInteger binaryToDecimal(String s) 
-   { 
-    BigInteger bin; 
-    bin = new BigInteger(s);
-    BigInteger ten;
-    ten = new BigInteger(10);
-    BigInteger decimalNumber = (BigInteger)0, remainder;
-    int i = 0;
-    
-    while (bin != 0)
-    {
-        remainder = bin.mod(ten);
-        decimalNumber = decimalNumber + (remainder * (BigInteger)(Math.pow(2,i)));
-        bin=bin.divide(ten);
-
-        i++;
+    public static int binaryToDecimal(String s) {
+        int summ = 0;
+        int power = 0;
+        for(int i = s.length()-1; i>=0; i--)
+        {
+            if(s.charAt(i) == '1')
+            {
+                summ = summ + (int)Math.pow(2, power);
+            }
+            power++;
+        }
+        return summ;
+    //return Integer.parseInt(s,2) ; 
     }
-    return decimalNumber;
-     
-    }
- }
+}
