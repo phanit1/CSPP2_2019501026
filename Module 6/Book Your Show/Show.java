@@ -27,11 +27,11 @@ public class Show {
     }
     public void printTickets(Patron p) {
         if (p.ticket!= "") {
-            System.out.println("Movie name: " + moviename + ": Date: " + datetime);
-            System.out.println("Patron name: " + p.PatronName + " Patron mobile no. : " + p.PatronNum + " \nConfirmed Seat numbers: " + p.ticket);
+            System.out.println("\nMovie name: " + moviename + ": Date: " + datetime);
+            System.out.println("Patron name: " + p.PatronName + " Patron mobile no. : " + p.PatronNum + " \nConfirmed Seat numbers: " + p.ticket +"\n");
         }
         else {
-            System.out.println("Booking failed!!!");
+            System.out.println("You are trying to book tickets which are already booked or not there.So Booking is failed");
         }
     }
     public void bookAShow(Patron p, String[] bookedSeats) {

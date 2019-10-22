@@ -30,7 +30,7 @@ public class Menu {
     Show show = new Show(movieName, datetime, seats);
     book.addAShow(show);
 
-    System.out.println(show);
+    //System.out.println(show);
 
     //  Creating an object for Show with the movieName, datetime and
     //  the number of seats of seats and adding the show to the BookYourShow
@@ -68,6 +68,6 @@ public class Menu {
     result.printTickets(p);
     result.printTickets(r);
     book.removeAMovie("Mission Impossible");
-    result.printTickets();
+    //result.printTickets()
   }
 }
