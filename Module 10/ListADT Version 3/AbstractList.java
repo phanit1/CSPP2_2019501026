@@ -152,10 +152,17 @@ public abstract class AbstractList implements ListInterface  {
      * 
      * Think of on which object this method can be called. List / OrderedList and etc.
      */
-    public abstract void add(int index, int item);
+    public void add(int index, int item) {
         // TODO
         // Your code goes here.
-    
+        if (index >= 0 && index < size) {
+            for(int i = size; i > index; i--) {
+                list[i] = list[i - 1];
+            }
+            list[index] = item;
+            size++;
+        }
+    }
 
     /**
      * Appends all of the elements in the specified list to the end of this list, or
@@ -167,8 +174,10 @@ public abstract class AbstractList implements ListInterface  {
     public void addAll(List lst) {
         // TODO
         // Your code goes here.
-        for(int i = 0; i < lst.size(); i++) {
-            add(lst.list[i]);
+        int[] arr =lst.list;
+        int arrSize =lst.size;
+        for(int i = 0; i < arrSize; i++) {
+            add(arr[i]);
         }
         
     }
@@ -236,7 +245,7 @@ public abstract class AbstractList implements ListInterface  {
         // Think about what to do to the size variable.
         // TODO
         // Your code goes here.
-        if (index < size && index>0) {
+        if (index < size) {
             int i = index;
             for (int j = i + 1; j < size; j++) {
                 this.list[i] = this.list[j];
@@ -320,16 +329,9 @@ public abstract class AbstractList implements ListInterface  {
      * Returns the index of the first occurrence of the specified element in this list,
      * or -1 if this list does not contain the element.
      */
-    public int indexOf(int item) {
+    public abstract int indexOf(int item); 
         // TODO
         // Your code goes here.
-        for(int i = 0; i < size; i++) {
-            if(list[i] == item) {
-                return i;
-            }
-        }
-        return -1;
-    }
 
     /**
      * Returns the index of the last occurrence of the specified element in this list, 
@@ -391,9 +393,10 @@ public abstract class AbstractList implements ListInterface  {
         // TODO
         // Your code goes here.
         List subList = new List(toIndex - fromIndex); // [0, 0]
-        
+        if (fromIndex == toIndex || (fromIndex < 0 || toIndex < 0)) {
+            return null;
+        }
         int subListIndex = 0;
-
         for(int i = fromIndex; i < toIndex; i++) {
             subList.list[subListIndex] = list[i];
             subList.size++;

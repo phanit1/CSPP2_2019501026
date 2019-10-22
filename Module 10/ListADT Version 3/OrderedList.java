@@ -32,7 +32,14 @@ public class OrderedList extends AbstractList {
         } 
         return lo;
     } 
-
+    public int indexOf(int item) {
+for(int i = 0; i < size; i++) {
+            if(list[i] == item) {
+                return i;
+            }
+        }
+        return -1;
+    }    
     public static void main(String[] args) {
         AbstractList lst = new OrderedList();
         lst.add(1, 1);

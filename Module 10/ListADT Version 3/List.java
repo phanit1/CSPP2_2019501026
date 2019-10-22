@@ -17,16 +17,12 @@ public class List extends AbstractList {
             resize();
         }
     }
-
-    public void add(int index, int item) {
-
-        for(int i = size; i > index; i--) {
-            list[i] = list[i - 1];
+    public int indexOf (int item) {
+        for(int i = 0; i < size; i++) {
+            if(list[i] == item) {
+                return i;
+            }
         }
-        list[index] = item;
-        size++;
-        if(size == capacity) {
-            resize();
-        }
+        return -1;
     }
 }
